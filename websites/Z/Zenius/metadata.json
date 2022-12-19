@@ -19,5 +19,6 @@
   "tags": [
     "education"
   ],
-  "category": "videos"
+  "category": "videos",
+  "iframe": true
 }

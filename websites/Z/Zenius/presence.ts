@@ -8,14 +8,24 @@ const presence = new Presence({
 	}),
 	browsingTimestamp = Math.floor(Date.now() / 1000);
 
+let tutor: string, title: string, time: string;
+
 const getSection = async (presenceData: PresenceData) => {
 	const breadcrumb = document.querySelector(".breadcrumb ol");
 	const video = document.querySelector("video");
-	console.log(breadcrumb);
+	if (document.location.pathname.includes('live-class') && document.location.search.includes('session')) {
+
+		
+		presenceData.details = title;
+		presenceData.state = `Tutor: ${tutor}`;
+		presenceData.startTimestamp = Math.floor(Date.now() / 1000) - presence.timestampFromFormat(time);
+		return presenceData;
+	}
 	if (breadcrumb == null) {
 		presenceData.details = (await strings).browsing;
 		return presenceData;
 	}
+	
 	if (video != null) {
 		const sectionTitle = document.querySelector('h2').textContent;
 		const videoTitle = document.querySelector('h4.c-znet-main-video-title').textContent;
@@ -50,3 +60,9 @@ presence.on("UpdateData", async () => {
 	getSection(presenceData);
 	presence.setActivity(presenceData);
 });
+
+presence.on('iFrameData', (data: {title: string, tutor: string, time: string}) => {
+	title = data.title;
+	tutor = data.tutor;
+	time = data.time;
+})
