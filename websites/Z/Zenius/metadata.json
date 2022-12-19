@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.premid.app/metadata/1.7",
+  "service": "Zenius",
+  "author": {
+    "id": "715787411984220221",
+    "name": "farishafizhan#4302"
+  },
+  "description": {
+    "en": "Zenius Website"
+  },
+  "url": [
+    "www.zenius.net",
+    "zenius.net"
+  ],
+  "version": "1.0.0",
+  "logo": "https://i.imgur.com/OjctKXG.jpg",
+  "thumbnail": "https://i.imgur.com/OjctKXG.jpg",
+  "color": "#7a1fa0",
+  "tags": [
+    "education"
+  ],
+  "category": "videos"
+}
